@@ -42,6 +42,8 @@ namespace RolePlayGameCharacterSheet
 
         private void MetroTextBox2_Click(object sender, EventArgs e)
         {
+            if(metroTextBox2.Text == "Race")
+            metroTextBox2.Clear();
 
         }
     }
