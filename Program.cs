@@ -26,7 +26,7 @@ namespace RolePlayGameCharacterSheet
         }
 
 
-        public static void changeDefDirectory(string newdir)
+        public static void changeDefaultDirectory(string newdir)
         {
 
         }

@@ -30,9 +30,10 @@ namespace RolePlayGameCharacterSheet
 
         }
 
-        private void MetroLabel1_Click(object sender, EventArgs e)
+        private void NameTextBox_Click(object sender, EventArgs e)
         {
-
+            if (metroTextBox1.Text == "Enter Name")
+                metroTextBox1.Clear();
         }
 
         private void MetroLabel2_Click(object sender, EventArgs e)
@@ -45,6 +46,21 @@ namespace RolePlayGameCharacterSheet
             if(metroTextBox2.Text == "Race")
             metroTextBox2.Clear();
 
+        }
+
+        private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CreateACharacter_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolTip1_Popup(object sender, PopupEventArgs e)
+        {
+            
         }
     }
 }
