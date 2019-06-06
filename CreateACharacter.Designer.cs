@@ -62,6 +62,13 @@
             this.cha_lvlnumber = new System.Windows.Forms.NumericUpDown();
             this.cha_classTxtBox = new MetroFramework.Controls.MetroTextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.invTableLP = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.inv_remove = new System.Windows.Forms.Button();
+            this.inv_addButton = new System.Windows.Forms.Button();
+            this.invItemTextBox = new System.Windows.Forms.TextBox();
             this.char_statpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -77,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cha_lvlnumber)).BeginInit();
+            this.invTableLP.SuspendLayout();
             this.SuspendLayout();
             // 
             // CancelButton
@@ -455,10 +463,83 @@
             this.cha_classTxtBox.UseSelectable = true;
             this.cha_classTxtBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.cha_classTxtBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.cha_classTxtBox.Click += new System.EventHandler(this.Cha_classTxtBox_Click);
             // 
             // toolTip1
             // 
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.ToolTip1_Popup);
+            // 
+            // invTableLP
+            // 
+            this.invTableLP.AutoScroll = true;
+            this.invTableLP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.invTableLP.ColumnCount = 2;
+            this.invTableLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78F));
+            this.invTableLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.invTableLP.ContextMenuStrip = this.contextMenuStrip1;
+            this.invTableLP.Controls.Add(this.label2, 0, 0);
+            this.invTableLP.Controls.Add(this.label3, 1, 0);
+            this.invTableLP.Location = new System.Drawing.Point(577, 124);
+            this.invTableLP.Name = "invTableLP";
+            this.invTableLP.RowCount = 1;
+            this.invTableLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.invTableLP.Size = new System.Drawing.Size(200, 217);
+            this.invTableLP.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Item";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(159, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "count";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(652, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Inventory";
+            // 
+            // inv_remove
+            // 
+            this.inv_remove.Location = new System.Drawing.Point(702, 373);
+            this.inv_remove.Name = "inv_remove";
+            this.inv_remove.Size = new System.Drawing.Size(75, 23);
+            this.inv_remove.TabIndex = 15;
+            this.inv_remove.Text = "Remove";
+            this.inv_remove.UseVisualStyleBackColor = true;
+            this.inv_remove.Click += new System.EventHandler(this.Inv_remove_Click);
+            // 
+            // inv_addButton
+            // 
+            this.inv_addButton.Location = new System.Drawing.Point(577, 373);
+            this.inv_addButton.Name = "inv_addButton";
+            this.inv_addButton.Size = new System.Drawing.Size(75, 23);
+            this.inv_addButton.TabIndex = 16;
+            this.inv_addButton.Text = "Add";
+            this.inv_addButton.UseVisualStyleBackColor = true;
+            this.inv_addButton.Click += new System.EventHandler(this.Inv_addButton_Click);
+            // 
+            // invItemTextBox
+            // 
+            this.invItemTextBox.Location = new System.Drawing.Point(577, 347);
+            this.invItemTextBox.Name = "invItemTextBox";
+            this.invItemTextBox.Size = new System.Drawing.Size(200, 20);
+            this.invItemTextBox.TabIndex = 17;
             // 
             // CreateACharacter
             // 
@@ -466,6 +547,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 455);
+            this.Controls.Add(this.invItemTextBox);
+            this.Controls.Add(this.inv_addButton);
+            this.Controls.Add(this.inv_remove);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.invTableLP);
             this.Controls.Add(this.cha_classTxtBox);
             this.Controls.Add(this.cha_lvlnumber);
             this.Controls.Add(this.lbl_lvl);
@@ -497,6 +583,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cha_lvlnumber)).EndInit();
+            this.invTableLP.ResumeLayout(false);
+            this.invTableLP.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,5 +625,12 @@
         private System.Windows.Forms.NumericUpDown cha_lvlnumber;
         private MetroFramework.Controls.MetroTextBox cha_classTxtBox;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TableLayoutPanel invTableLP;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button inv_remove;
+        private System.Windows.Forms.Button inv_addButton;
+        private System.Windows.Forms.TextBox invItemTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

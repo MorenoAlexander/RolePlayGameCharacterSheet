@@ -27,7 +27,7 @@ namespace RolePlayGameCharacterSheet
 
         private void Create_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void NameTextBox_Click(object sender, EventArgs e)
@@ -48,6 +48,9 @@ namespace RolePlayGameCharacterSheet
 
         }
 
+
+        //private void MetroText
+
         private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -61,6 +64,43 @@ namespace RolePlayGameCharacterSheet
         private void ToolTip1_Popup(object sender, PopupEventArgs e)
         {
             
+        }
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cha_classTxtBox_Click(object sender, EventArgs e)
+        {
+            if(cha_classTxtBox.Text == "class")
+            {
+                cha_classTxtBox.Clear();
+            }
+        }
+
+        private void Inv_addButton_Click(object sender, EventArgs e)
+        {
+
+            if(invItemTextBox.Text == "")
+            {
+                System.Media.SystemSounds.Beep.Play();
+                return;
+            }
+            string text = invItemTextBox.Text;
+
+            if (invTableLP.RowCount < 50) //Arbitrary max
+            {
+                invTableLP.RowCount = invTableLP.RowCount + 1;
+                invTableLP.RowStyles.Add(new RowStyle(SizeType.AutoSize, 1F));
+                invTableLP.Controls.Add(new NumericUpDown() { Value = 1, TextAlign = HorizontalAlignment.Center,MaximumSize= new Size(100,15)}, 1, invTableLP.RowCount - 1);
+                invTableLP.Controls.Add(new Label() { Text = text,TextAlign = ContentAlignment.TopCenter,Font = new Font("Arial",10,FontStyle.Regular),Padding = new Padding(1)}, 2, invTableLP.RowCount - 1);
+            }
+            
+        }
+
+        private void Inv_remove_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
