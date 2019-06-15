@@ -1,4 +1,6 @@
-﻿namespace RolePlayGameCharacterSheet
+﻿using System;
+
+namespace RolePlayGameCharacterSheet
 {
     partial class CreateACharacter
     {
@@ -134,6 +136,7 @@
             this.metroTextBox1.Size = new System.Drawing.Size(75, 23);
             this.metroTextBox1.TabIndex = 2;
             this.metroTextBox1.Text = "Enter Name";
+            this.toolTip1.SetToolTip(this.metroTextBox1, "Add Character\'s name");
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -193,6 +196,7 @@
             // 
             // char_skillList
             // 
+            this.char_skillList.CheckOnClick = true;
             this.char_skillList.FormattingEnabled = true;
             this.char_skillList.Items.AddRange(new object[] {
             "Acrobatics (Dex)",
@@ -217,7 +221,11 @@
             this.char_skillList.Margin = new System.Windows.Forms.Padding(1);
             this.char_skillList.Name = "char_skillList";
             this.char_skillList.Size = new System.Drawing.Size(128, 274);
+            this.char_skillList.Sorted = true;
             this.char_skillList.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.char_skillList, "Choose skills that you have expertise in.");
+            this.char_skillList.SelectedIndexChanged += new System.EventHandler(this.Char_skillList_ItemCheck);
+            this.char_skillList.DoubleClick += new System.EventHandler(this.char_skillList_DoubleClick);
             // 
             // char_statpanel
             // 
@@ -254,6 +262,7 @@
             this.char_statpanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.char_statpanel.Size = new System.Drawing.Size(172, 156);
             this.char_statpanel.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.char_statpanel, "Modify stats and stat bonuses.\r\n");
             this.char_statpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutPanel1_Paint);
             // 
             // lbl_dex
@@ -460,6 +469,7 @@
             this.cha_classTxtBox.Size = new System.Drawing.Size(128, 23);
             this.cha_classTxtBox.TabIndex = 12;
             this.cha_classTxtBox.Text = "class";
+            this.toolTip1.SetToolTip(this.cha_classTxtBox, "Write the character\'s class here.");
             this.cha_classTxtBox.UseSelectable = true;
             this.cha_classTxtBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.cha_classTxtBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -485,6 +495,7 @@
             this.invTableLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.invTableLP.Size = new System.Drawing.Size(200, 217);
             this.invTableLP.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.invTableLP, "Add items to character\'s inventory");
             // 
             // label2
             // 
@@ -503,7 +514,6 @@
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "count";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // label1
             // 
@@ -589,6 +599,12 @@
             this.PerformLayout();
 
         }
+
+        private void char_skillList_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
 
         #endregion
 

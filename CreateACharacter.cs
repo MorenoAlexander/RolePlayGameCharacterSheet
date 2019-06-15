@@ -65,10 +65,6 @@ namespace RolePlayGameCharacterSheet
         {
             
         }
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Cha_classTxtBox_Click(object sender, EventArgs e)
         {
@@ -77,6 +73,18 @@ namespace RolePlayGameCharacterSheet
                 cha_classTxtBox.Clear();
             }
         }
+        private void Char_skillList_ItemCheck(object sender, EventArgs e)
+        {
+            
+            if (char_skillList.CheckedIndices.Count > 4)
+            {
+                var dat = char_skillList.CheckedIndices[4];
+                //char_skillList.SetItemCheckState(char_skillList.Items.IndexOf(char_skillList.SelectedItem), CheckState.Unchecked);
+                char_skillList.SetItemCheckState(dat, CheckState.Unchecked);
+            }
+        }
+
+
 
         private void Inv_addButton_Click(object sender, EventArgs e)
         {
@@ -93,14 +101,15 @@ namespace RolePlayGameCharacterSheet
                 invTableLP.RowCount = invTableLP.RowCount + 1;
                 invTableLP.RowStyles.Add(new RowStyle(SizeType.AutoSize, 1F));
                 invTableLP.Controls.Add(new NumericUpDown() { Value = 1, TextAlign = HorizontalAlignment.Center,MaximumSize= new Size(100,15)}, 1, invTableLP.RowCount - 1);
-                invTableLP.Controls.Add(new Label() { Text = text,TextAlign = ContentAlignment.TopCenter,Font = new Font("Arial",10,FontStyle.Regular),Padding = new Padding(1)}, 2, invTableLP.RowCount - 1);
+                invTableLP.Controls.Add(new Label() { Text = text,Dock=DockStyle.Top,Anchor=AnchorStyles.None,TextAlign = ContentAlignment.TopCenter,Font = new Font("Arial",10,FontStyle.Regular),Padding = new Padding(1)}, 2, invTableLP.RowCount - 1);
             }
             
         }
 
         private void Inv_remove_Click(object sender, EventArgs e)
         {
-
+            int rowCount = invTableLP.RowCount;
+            
         }
     }
 }
